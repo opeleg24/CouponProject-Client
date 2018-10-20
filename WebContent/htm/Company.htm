@@ -1,0 +1,284 @@
+
+<meta charset="windows-1255">
+<title>Company page</title>
+<script type="text/javascript" src="./scripts/angular.min.js"></script>
+<script type="text/javascript" src="./scripts/app.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/Company.css" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans"
+	rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body ng-app="project">
+
+
+	<div id="headDiv"></div>
+
+	<div ng-controller="CompanyController as compController">
+
+		<ul>
+			<button id="CompanyButtons"
+				ng-click="compController.getCompanyCouponsByCompanyId()">
+				<li><a href="">Company Coupons</a></li>
+			</button>
+			<button id="CompanyButtons"
+				ng-click="compController.getCompanyDetails()">
+				<li><a href="">Company Details</a></li>
+			</button>
+		</ul>
+		<button id="LogOutCompany" style="width: 70px;"ng-click="compController.CompanyLogOut()">Logout</button>
+		<!-- Tab.isSet(1) Company's Details By Company ID-->
+		<div ng-show="compController.isSet(1)">
+
+			<table id="tableCompanyDetails">
+				<caption id="CompanyDetailsCaption">
+					<font color="white">Company Details-Company Details</font>
+				</caption>
+				<tr>
+					<th>Company Id</th>
+					<th>Company Name</th>
+					<th>Company Password</th>
+					<th>Company Email</th>
+				</tr>
+				<tr>
+					<td>{{company.companyId}}</td>
+					<td>{{company.companyName}}</td>
+					<td>{{company.companyPassword}}</td>
+					<td>{{company.companyEmail}}</td>
+				</tr>
+			</table>
+
+		</div>
+		<!-- Tab.isSet(2) List of Company Coupons-->
+		<div ng-show="compController.isSet(2)"
+			ng-controller="CompanyController as compCtrl">
+	
+
+			<button id="AllCompanyCouponByCompanyId" style="width: 70px;"
+				ng-click="compCtrl.backToGetAllCompanyCouponsByCompanyId()">Back
+				To Company Coupons</button>
+
+
+
+
+			<div id="simpleModal">
+				<div id="modal-content">
+
+					<h1>Create Coupon Form</h1>
+					<span id="CloseButtonCreateCoupon" class="closeBtn">&times;</span>
+
+					<form>
+
+						<br> Coupon Title <input id="CouponTitle" type="text"
+							placeholder="Enter Coupon Title" style="width: 143px;"
+							placeholder="Enter Coupon Name" ng-model="coupon.couponTitle"
+							required></input><br></br> Coupon Start Date <input type="date"
+							id="CouponStartDate" ng-model="coupon.startDate" required></input><br></br>
+						Coupon End Date <input type="date" id="CouponEndDate"
+							ng-model="coupon.endDate" required></input><br></br> Coupon
+						Amount <input type="number" id="AmountOfCoupons"
+							placeholder="Amount of Coupons" ng-model="coupon.couponAmount"
+							required style="width: 143px;"></input> <br></br> Coupon Type <select
+							required ng-model="coupon.couponType" id="CouponType"
+							style="width: 143px;">
+							<option value="" disabled selected>Coupon Types</option>
+							<option value="Electricity" required>Electricity</option>
+							<option value="Food" required>Food</option>
+							<option value="Sports" required>Sports</option>
+							<option value="Camping" required>Camping</option>
+							<option value="Restaurant" required>Restaurant</option>
+							<option value="Travelling" required>Travelling</option>
+
+						</select> <br></br>Coupon Message
+						<textarea id="couponDescription" style="width: 144px;"
+							placeholder="Coupon Description" ng-model="coupon.message"
+							required></textarea>
+						<br></br>Coupon Price <input type="number" id="CouponPrice"
+							placeholder="Enter Coupon Price" style="width: 143px;"
+							step="0.25" ng-model="coupon.price" required></input><br></br>
+						Coupon Image <select id="CouponImage"
+							placeholder="Attach Coupon Image" ng-model="coupon.image"
+							style="width: 143px;" required>
+							<option value="" disabled selected>Coupon Image</option>
+							<option value="Coupon-electricity.jpg" required>Electricity Image</option>
+							<option value="Coupon-food.jpg" required>Food Image</option>
+							<option value="Coupon-sport.jpg" required>Sports Image</option>
+							<option value="Coupon-camping.png" required>Camping Image</option>
+							<option value="Coupon-restaurant.jpg" required>Restaurant Image</option>
+							<option value="Coupon-travelling.png" required>Travelling Image</option>
+							</select><br></br>
+						<button id="SumbitCreateCouponButton"
+							ng-click="compCtrl.createCoupon()">Sumbit</button>
+
+						<br> <br>
+					</form>
+
+
+
+				</div>
+			</div>
+
+
+
+			<div id="simpleModalUpdateCoupon">
+				<div id="ModalContentUpdateCoupon">
+					<h1>Update Coupon Form</h1>
+					<span class="closeBtnUpdateCoupon">&times;</span>
+
+					<form>
+
+						<p id="CouponID" ng-model="couponId" required> Coupon ID: {{couponId}}</p>
+						
+						Coupon Title<input id="CouponTitle" type="text"
+							ng-model="couponTitle" style="width: 143px;" required></input><br></br>Coupon
+						Start Date<input id="CouponStartDate" type="date"
+							style="width: 143px;" ng-model="startDate" ></input><br></br>
+						Coupon End Date<input id="CouponEndDate" type="date"
+							ng-model="endDate" ></input><br></br> Coupon Amount<input
+							id="AmountOfCoupons" type="text" style="width: 143px;"
+							ng-model="couponAmount" required></input><br></br> Coupon Type<select
+							required ng-model="couponType" id="CouponType"
+							style="width: 143px;">
+							<option value="" disabled selected>Coupon Types</option>
+							<option value="Electricity" required>Electricity</option>
+							<option value="Food" required>Food</option>
+							<option value="Sports" required>Sports</option>
+							<option value="Camping" required>Camping</option>
+							<option value="Restaurant" required>Restaurant</option>
+							<option value="Travelling" required>Travelling</option>
+
+						</select><br></br>Coupon Message
+						<textarea id="couponDescription" style="width: 144px;"
+							placeholder="Coupon Description" ng-model="message"
+							required></textarea>
+						<br></br> Coupon Price<input id="CouponPrice" type="text" style="width: 143px;"
+							ng-model="price" required></input><br></br> Coupon Image<select id="CouponImage"
+							type="text" style="width: 143px;" ng-model="image"
+							>
+							<option value="" disabled selected>Coupon Image</option>
+							<option value="Coupon-electricity.jpg" required>Electricity Image</option>
+							<option value="Coupon-food.jpg" required>Food Image</option>
+							<option value="Coupon-sport.jpg" required>Sports Image</option>
+							<option value="Coupon-camping.png" required>Camping Image</option>
+							<option value="Coupon-restaurant.jpg" required>Restaurant Image</option>
+							<option value="Coupon-travelling.png" required>Travelling Image</option>
+							</select><br></br>
+						<button id="SumbitCreateCouponButton" ng-click="compCtrl.updateCoupon(coupon.couponId)">Update
+							Coupon</button>
+					</form>
+
+				</div>
+			</div>
+
+			<button id="GetCompanyCouponByPriceLimit" style="width: 128px;"
+				disabled>
+				Coupons By Price Limits
+				<form>
+					<span id="inputDollerSign"> <input type="number"
+						style="width: 126px;" step="0.25" ng-model="startPrice"></input></span> <span
+						id="inputDollerSign"><input type="number"
+						style="width: 126px;" step="0.25" value="0.00"
+						ng-model="limitPrice"></input></span>
+					<button id="SumbitGetCompanyCouponByPriceLimit"
+						ng-click="compCtrl.getCouponsByCompanyIdAndStartPriceAndLimitPrice()">Sumbit</button>
+				</form>
+			</button>
+			<button id="GetCompanyCouponByStartDateStartAndEndDateLimit"
+				style="width: 128px;" disabled>
+				Coupons By Start Date Limits
+				<form>
+
+					<input type="date" style="width: 126px;"
+						name="coupon Start Date start" ng-model="startDateStart" required></input>
+					<input type="date" style="width: 126px;"
+						name="coupon Start Date limit" placeholder="dd-MM-yyyy"
+						ng-model="startDateLimit" required></input>
+					<button id="SumbitGetCompanyCouponByStartDateStartAndEndDateLimit"
+						ng-click="compCtrl.getCouponsByCompanyIdAndStartDateStartAndEndDateLimit()">Sumbit</button>
+				</form>
+			</button>
+			<button id="GetCompanyCouponByEndDateStartAndEndDateLimit"
+				style="width: 128px;" disabled>
+				Coupons By End Date Limits
+				<form>
+					<input type="date" style="width: 126px;"
+						name="coupon End Date start" ng-model="endDateStart" required></input>
+					<input type="date" style="width: 126px;"
+						name="coupon End Date limit" placeholder="dd-MM-yyyy"
+						ng-model="endDateLimit" required></input>
+					<button id="SumbitGetCompanyCouponByEndDateStartAndEndDateLimit"
+						ng-click="compCtrl.getCouponsByCompanyIdAndEndDateStartAndEndDateLimit()">Sumbit</button>
+				</form>
+			</button>
+			<button id="CompanyCouponsByCouponTypeListButton"
+				style="width: 128px;" disabled>
+
+				Coupons By Coupon Type
+				<form>
+					<select required ng-model="CouponType" style="width: 126px;">
+						<option value="" disabled selected>Coupon Type</option>
+						<option value="Electricity" required>Electricity</option>
+						<option value="Food" required>Food</option>
+						<option value="Sports" required>Sports</option>
+						<option value="Camping" required>Camping</option>
+						<option value="Restaurant" required>Restaurant</option>
+						<option value="Travelling" required>Travelling</option>
+
+					</select>
+
+					<button id="SumbitCompanyCouponsByCouponTypeListButton"
+						ng-click="compCtrl.getCouponsByCompanyIdAndCouponType()">Sumbit</button>
+				</form>
+			</button>
+
+			<table id="tableCompanyCoupons">
+				<caption id="CouponDetailsCaption">
+					<font color="white">Company Coupons-Coupon Details</font>
+				</caption>
+				<tr>
+					<th><button id="modalBtn" class="button">Create
+							Coupon</button>
+				</tr>
+				<tr>
+					<th>Coupon Id</th>
+					<th>Coupon Title</th>
+					<th>Company Id</th>
+					<th>Coupon Start Date</th>
+					<th>Coupon End Date</th>
+					<th>Coupon Amount</th>
+					<th>Coupon Type</th>
+					<th>Message</th>
+					<th>Price</th>
+					<th>Image</th>
+				</tr>
+				<tr ng-repeat="coupon in coupons">
+					<td>{{coupon.couponId}}</td>
+					<td>{{coupon.couponTitle}}</td>
+					<td>{{coupon.companyId}}</td>
+					<td>{{coupon.startDate|date:'dd/MM/yyyy'}}</td>
+					<td>{{coupon.endDate|date:'dd/MM/yyyy'}}</td>
+					<td>{{coupon.couponAmount}}</td>
+					<td>{{coupon.couponType}}</td>
+					<td>{{coupon.message}}</td>
+					<td>{{coupon.price}}</td>
+					<td><img src="images/{{coupon.image}}" alt="No Image" style="width:42px;height:42px"></td>
+					
+
+					<td><button id="removeCoupon"
+							ng-click="compCtrl.deleteCouponAndDeleteCouponsPurchasedByCustomer(coupon.couponId)">Remove
+							Coupon</button> <br>
+						<button id="updateCoupon"
+							ng-click="compCtrl.getUpdateModel(coupon.couponId)">Update
+							Coupon</button></td>
+
+
+				</tr>
+			</table>
+
+		</div>
+
+	</div>
+</body>
+

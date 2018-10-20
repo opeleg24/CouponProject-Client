@@ -1,0 +1,853 @@
+<meta charset="windows-1255">
+
+<title>Administrator page</title>
+
+<body ng-app="project">
+	<script type="text/javascript" src="./scripts/angular.min.js"></script>
+	<script type="text/javascript" src="./scripts/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/Admin.css" />
+	<div id="headDiv"></div>
+
+	<div class="Tab" ng-controller="AdminController as Tab">
+		<ul>
+			<button id="adminButton" ng-click="Tab.setTab(1)">
+				<li ng-class="{active:Tab.isSet(1)}"><a href="">Administrator
+						Panel</a></li>
+			</button>
+			</br>
+			<button id="adminButton" ng-click="Tab.setTab(2)">
+				<li ng-class="{active:Tab.isSet(2)}"><a href="">Company
+						Panel</a></li>
+			</button>
+			</br>
+			<button id="adminButton" ng-click="Tab.setTab(3)">
+				<li ng-class="{active:Tab.isSet(3)}"><a href="">Customer
+						Panel</a></li>
+			</button>
+		</ul>
+		<button id="LogOutAdmin" style="width: 70px;"
+			ng-click="Tab.AdminLogOut()">Logout</button>
+		<!-- Tab.isSet(1) Administrator Panel-->
+		<div ng-show="Tab.isSet(1)"
+			ng-controller="AdminController as AdminCtrl">
+
+
+			<h3>ADMINISTRATOR PANEL</h3>
+
+			<ul>
+				<button id="adminButton" ng-click="AdminCtrl.getAllCompanies()">
+					<li><a href="">All Companies List</a></li>
+				</button>
+				</br>
+				<button id="adminButton" ng-click="show=2">
+					<li><a href="">Get Company</a></li>
+				</button>
+				</br>
+				<button id="adminButton" ng-click="AdminCtrl.getAllCustomers()">
+					<li><a href="">All Customers List</a></li>
+				</button>
+				</br>
+				<button id="adminButton" ng-click="show=4">
+					<li><a href="">Get Customer</a></li>
+				</button>
+				</br>
+			</ul>
+			<!--show==1: Table List of Companies-->
+			<div ng-show="show==1">
+				<table id="tableListOfCompanies">
+					<caption id="tableListOfCompaniesCaption">
+						<font color="white">All Companies List-Company Details</font>
+					</caption>
+					<tr>
+					<tr>
+						<th><button id="modalBtnCreateCompany">Create
+								Company</button></th>
+					</tr>
+					<th>Company Id</th>
+					<th>Company Name</th>
+					<th>Company Password</th>
+					<th>Company Email</th>
+					</tr>
+					<tr ng-repeat="company in companies">
+						<td>{{company.companyId}}</td>
+						<td>{{company.companyName}}</td>
+						<td>{{company.companyPassword}}</td>
+						<td>{{company.companyEmail}}</td>
+						<td><button button id="RemoveCompany"
+								ng-click="AdminCtrl.deletePurchasedCouponsAndCompanyCouponsAndCompanyByCompanyId(company.companyId)">Remove
+								Company</button></td>
+						<td><button button id="UpdateCompany"
+								ng-click="AdminCtrl.getUpdateCompanyModal(company.companyId)">Update
+								Company</button></td>
+					</tr>
+				</table>
+
+				<div id="simpleModalCreateCompany">
+					<div id="ModalContentCreateCoupon">
+						<span id="CloseButtonCreateCompany" class="closeBtn">&times;</span>
+						<h1>Create Company Form</h1>
+						<form>
+							<br> Company Name<input id="CompanyName" type="text"
+								placeholder="Company Title" style="width: 143px;"
+								ng-model="company.companyName" required></input><br></br>
+							Company Password<input id="CompanyPassword"
+								placeholder="Company Password" type="text" style="width: 143px;"
+								ng-model="company.companyPassword" required></input><br></br>
+							Company Email<input id="CompanyEmail" placeholder="Company Email"
+								type="email" style="width: 143px;"
+								ng-model="company.companyEmail" required></input><br></br> <br>
+							<button id="SumbitCreateCompanyButton"
+								ng-click="AdminCtrl.createCompany()">Sumbit</button>
+						</form>
+
+
+
+					</div>
+				</div>
+
+				<div id="simpleModalUpdateCompany">
+					<div id="ModalContentUpdateCompany">
+						<span class="CloseButtonUpdateCompany">&times;</span>
+
+						<h1>Update Company Form</h1>
+
+						<form>
+							<br>
+							<p id="CompanyId" ng-model="company.companyId" required>Company
+								ID:{{companyId}}</p>
+							<br> Company Password<input id="CompanyPassword" type="text"
+								style="width: 143px;" ng-model="companyPassword" required></input><br></br>
+							Company Email<input id="CompanyEmail" type="email"
+								style="width: 143px;" ng-model="companyEmail" required></input><br></br>
+
+							<button id="SumbitUpdateCompanyButton"
+								ng-click="AdminCtrl.updateCompany(company.companyId)">Sumbit</button>
+					</div>
+				</div>
+
+
+
+			</div>
+
+			<!--show==2: Gets a specific Company,Form to get a Company ID and a Table to Display it-->
+			<div ng-show="show==2">
+
+
+				<div id="simpleModalGetCompanyDetails">
+					<div id="ModalContentGetCompanyDetails">
+						<span class="CloseButtonGetCompanyDetails">&times;</span>
+						<form id="FormEnterCompanyId">
+							<h1 id="EnterACompanyID">Enter Company ID</h1>
+							<br></br> Company ID<input id="CompanyIdGetCompanyDetails"
+								placeholder="Company ID" type="number" ng-model="companyId"></input><br></br>
+
+							<button id="CompanyIdGetCompanyDetailsSumbit"
+								ng-click="AdminCtrl.getCompanyByCompanyId()">Sumbit</button>
+						</form>
+
+
+
+					</div>
+				</div>
+
+				<table id="TableGetCompany">
+					<caption id="tableGetCompanyCaption">
+						<font color="white">Get Company-Company Details</font>
+					</caption>
+
+					<tr>
+					<tr>
+						<th><button id="modalBtnGetCompanyDetails">Enter
+								Company ID</button></th>
+					</tr>
+					<th>Company Id</th>
+					<th>Company Name</th>
+					<th>Company Password</th>
+					<th>Company Email</th>
+					</tr>
+					<tr>
+						<td>{{company.companyId}}</td>
+						<td>{{company.companyName}}</td>
+						<td>{{company.companyPassword}}</td>
+						<td>{{company.companyEmail}}</td>
+					</tr>
+				</table>
+
+
+			</div>
+			<!--show==3:Table List of Customers-->
+			<div ng-show="show==3">
+
+				<div id="simpleModalCreateCustomer">
+					<div id="ModalContentGetCreateCustomer">
+						<span class="CloseButtonCreateCustomer" class="closeBtn">&times;</span>
+						<form>
+
+							<h1>Create Customer Form</h1>
+							<br> Customer Name<input id="CustomerName" type="text"
+								style="width: 143px;" placeholder="Customer Name"
+								ng-model="customer.customerName" required></input><br></br>
+							Customer Password<input id="CustomerPassword" type="text"
+								style="width: 143px;" placeholder="Customer Password"
+								ng-model="customer.customerPassword" required></input><br></br>
+
+
+							<button id="SumbitCreateCustomerButton"
+								ng-click="AdminCtrl.createCustomer()">Sumbit</button>
+						</form>
+
+
+					</div>
+				</div>
+				<div id="simpleModalUpdateCustomer">
+					<div id="ModalContentUpdateCustomer">
+						<span class="CloseButtonUpdateCustomer">&times;</span>
+						<form>
+							<h1>Update Customer Form</h1>
+							<br>
+							<p id="CustomerId" ng-model="customer.customerId" required>Customer
+								ID: {{customerId}}</p>
+							<br> Customer Password<input id="CustomerPassword"
+								type="text" style="width: 143px;" ng-model="customerPassword"
+								required></input><br></br>
+
+							<button id="CustomerSumbitForm"
+								ng-click="AdminCtrl.updateCustomer(customer.customerId)">Sumbit</button>
+						</form>
+
+					</div>
+				</div>
+
+				<table id="TableListOfCustomers">
+					<caption id="tableListOfCustomersCaption">
+						<font color="white">All Customers List-Customer Details</font>
+					</caption>
+					<tr>
+					<tr>
+						<th><button id="modalBtnCreateCustomer">Create
+								Customer</button></th>
+					</tr>
+					<th>Customer Id</th>
+					<th>Customer Name</th>
+					<th>Customer Password</th>
+
+					</tr>
+					<tr ng-repeat="customer in customers">
+						<td>{{customer.customerId}}</td>
+						<td>{{customer.customerName}}</td>
+						<td>{{customer.customerPassword}}</td>
+						<td><button id="RemoveCustomer"
+								ng-click="AdminCtrl.deleteCustomerAndCustomerPurchasedCouponsByCustomerId(customer.customerId)">Remove
+								Customer</button></td>
+						<td><button id="UpdateCustomer"
+								ng-click="AdminCtrl.getUpdateCustomerModal(customer.customerId)">Update
+								Customer</button></td>
+
+					</tr>
+				</table>
+
+
+			</div>
+			<!--show==4: Gets a specific Customer,Form to get a Customer ID and a Table to Display it-->
+			<div ng-show="show==4">
+				<div id="simpleModalGetCustomerDetails">
+					<div id="ModalContentGetCustomerDetails">
+						<span class="CloseButtonGetCustomerDetails" class="closeBtn">&times;</span>
+
+						<h1 id="EnterACustomerID">Enter Customer ID</h1>
+
+						<form>
+							<br></br>Customer ID<input id="CustomerIdGetCustomerDetails"
+								placeholder="Customer ID" type="number" ng-model="customerId"></input>
+							<br></br>
+							<button id="CustomerIdGetCustomerDetailsSumbit"
+								ng-click="AdminCtrl.getCustomerByCustomerId()">Sumbit</button>
+						</form>
+
+
+					</div>
+				</div>
+
+
+				<table id="TableGetCustomer">
+					<caption id="tableGetCustomerCaption">
+						<font color="white">Get Customer-Customer Details</font>
+					</caption>
+					<tr>
+					<tr>
+						<th><button id="modalBtnGetCustomerDetails">Enter
+								Customer ID</button></th>
+					</tr>
+					<th>Customer Id</th>
+					<th>Customer Name</th>
+					<th>Customer Password</th>
+
+					</tr>
+					<tr>
+						<td>{{customer.customerId}}</td>
+						<td>{{customer.customerName}}</td>
+						<td>{{customer.customerPassword}}</td>
+
+					</tr>
+				</table>
+
+			</div>
+		</div>
+		<!-- Tab.isSet(2) Company Panel-->
+		<div ng-show="Tab.isSet(2)"
+			ng-controller="AdminController as AdminCtrl">
+			<h3>Company Panel</h3>
+			<ul>
+				<button id="adminButton" ng-click="show=5">
+					<li><a href="">Company Coupons</a></li>
+				</button>
+				</br>
+
+			</ul>
+			<!--show==5: Gets a specific Company,Form to get a company id and a Table to Display it-->
+			<div ng-show="show==5">
+
+				<div id="simpleModalGetCompanyCoupons">
+					<div id="ModalContentGetCompanyCoupons">
+						<span class="CloseButtonGetCompanyCoupons">&times;</span>
+						<h1 id="EnterACustomerID">Enter Company ID</h1>
+						<br></br>
+						<form>
+
+							Company ID <br></br> <input type="number" ng-model="companyId"
+								id="GetCompanyCouponsByCompanyId" placeholder="Company ID"></input><br></br>
+							<button id="GetCompanyCouponsByCompanyIdSumbitButton"
+								ng-click="AdminCtrl.getAllCouponsByCompanyId()">Sumbit</button>
+
+						</form>
+
+					</div>
+				</div>
+				<div id="simpleModalCreateCoupon">
+					<div id="modal-contentCreateCoupon">
+
+						<h1>Create Coupon Form</h1>
+						<span class="CloseButtonAdminCreateCoupon" class="closeBtn">&times;</span>
+
+						<form>
+
+							<br> Coupon Title <input id="CouponTitle" type="text"
+								placeholder="Enter Coupon Title" style="width: 143px;"
+								placeholder="Enter Coupon Name" ng-model="coupon.couponTitle"
+								required></input><br></br> Coupon Start Date <input type="date"
+								id="CouponStartDate" ng-model="coupon.startDate" required></input><br></br>
+							Coupon End Date <input type="date" id="CouponEndDate"
+								ng-model="coupon.endDate" required></input><br></br> Coupon
+							Amount <input type="number" id="AmountOfCoupons"
+								placeholder="Amount of Coupons" ng-model="coupon.couponAmount"
+								required style="width: 143px;"></input> <br></br> Coupon Type <select
+								required ng-model="coupon.couponType" id="CouponType"
+								style="width: 143px;">
+								<option value="" disabled selected>Coupon Types</option>
+								<option value="Electricity" required>Electricity</option>
+								<option value="Food" required>Food</option>
+								<option value="Sports" required>Sports</option>
+								<option value="Camping" required>Camping</option>
+								<option value="Restaurant" required>Restaurant</option>
+								<option value="Travelling" required>Travelling</option>
+
+							</select> <br></br>Coupon Message
+							<textarea id="couponDescription" style="width: 144px;"
+								placeholder="Coupon Description" ng-model="coupon.message"
+								required></textarea>
+							<br></br>Coupon Price <input type="number" id="CouponPrice"
+								placeholder="Enter Coupon Price" style="width: 143px;"
+								step="0.25" ng-model="coupon.price" required></input><br></br>
+							Coupon Image <select id="CouponImage"
+								placeholder="Attach Coupon Image" ng-model="coupon.image"
+								style="width: 143px;" required>
+								<option value="" disabled selected>Coupon Image</option>
+								<option value="Coupon-electricity.jpg" required>Electricity
+									Image</option>
+								<option value="Coupon-food.jpg" required>Food Image</option>
+								<option value="Coupon-sport.jpg" required>Sports Image</option>
+								<option value="Coupon-camping.png" required>Camping
+									Image</option>
+								<option value="Coupon-restaurant.jpg" required>Restaurant
+									Image</option>
+								<option value="Coupon-travelling.png" required>Travelling
+									Image</option>
+							</select><br></br>
+							<button id="SumbitCreateCouponButton"
+								ng-click="AdminCtrl.createCouponByCompanyId()">Sumbit</button>
+
+							<br> <br>
+						</form>
+
+					</div>
+				</div>
+				<div id="simpleModalAdminUpdateCoupon">
+					<div id="ModalContentAdminUpdateCoupon">
+						<h1>Update Coupon Form</h1>
+						<span class="closeBtnAdminUpdateCoupon">&times;</span>
+						<form>
+
+							<p id="CouponID" ng-model="couponId" required>Coupon ID:
+								{{couponId}}</p>
+
+							Coupon Title<input id="CouponTitle" type="text"
+								ng-model="couponTitle" style="width: 143px;" required></input><br></br>Coupon
+							Start Date<input id="CouponStartDate" type="date"
+								style="width: 143px;" ng-model="startDate"></input><br></br>
+							Coupon End Date<input id="CouponEndDate" type="date"
+								ng-model="endDate"></input><br></br> Coupon Amount<input
+								id="AmountOfCoupons" type="text" style="width: 143px;"
+								ng-model="couponAmount" required></input><br></br> Coupon Type<select
+								required ng-model="couponType" id="CouponType"
+								style="width: 143px;">
+								<option value="" disabled selected>Coupon Image</option>
+								<option value="Coupon-electricity.jpg" required>Electricity
+									Image</option>
+								<option value="Coupon-food.jpg" required>Food Image</option>
+								<option value="Coupon-sport.jpg" required>Sports Image</option>
+								<option value="Coupon-camping.png" required>Camping
+									Image</option>
+								<option value="Coupon-restaurant.jpg" required>Restaurant
+									Image</option>
+								<option value="Coupon-travelling.png" required>Travelling
+									Image</option>
+
+							</select><br></br>Coupon Message
+							<textarea id="couponDescription" style="width: 144px;"
+								placeholder="Coupon Description" ng-model="message" required></textarea>
+							<br></br> Coupon Price<input id="CouponPrice" type="text"
+								style="width: 143px;" ng-model="price" required></input><br></br>
+							Coupon Image<select id="CouponImage" type="file"
+								style="width: 143px;" ng-model="image">
+								<option value="" disabled selected>Coupon Image</option>
+								<option value="Coupon-electricity.jpg" required>Electricity
+									Image</option>
+								<option value="Coupon-food.jpg" required>Food Image</option>
+								<option value="Coupon-sport.jpg" required>Sports Image</option>
+								<option value="Coupon-camping.png" required>Camping
+									Image</option>
+								<option value="Coupon-restaurant.jpg" required>Restaurant
+									Image</option>
+								<option value="Coupon-travelling.png" required>Travelling
+									Image</option>
+							</select><br></br>
+							<button id="SumbitCreateCouponButton"
+								ng-click="AdminCtrl.updateCoupon(coupon.couponId)">Update
+								Coupon</button>
+						</form>
+
+
+					</div>
+				</div>
+
+				<button id="AllCompanyCouponByCompanyId" style="width: 100px;"
+					ng-click="AdminCtrl.backToGetAllCompanyCouponsByCompanyId()">Back
+					To All Company Coupons</button>
+
+				<button id="GetCompanyCouponByPriceLimit" style="width: 100px;">
+					Coupons By Price Limits
+					<form>
+						<span id="inputDollerSign"> <input type="number"
+							style="width: 95px;" step="0.25" ng-model="startPrice"></input></span> <span
+							id="inputDollerSign"><input type="number"
+							style="width: 95px;" step="0.25" value="0.00"
+							ng-model="limitPrice"></input></span>
+						<button id="SumbitGetCompanyCouponByPriceLimit"
+							ng-click="AdminCtrl.getCouponsByCompanyIdAndStartPriceAndLimitPrice()">Sumbit</button>
+					</form>
+				</button>
+
+				<button id="GetCompanyCouponByStartDateStartAndEndDateLimit"
+					style="width: 100px;">
+					Coupons By Start Date Limits
+					<form>
+
+						<input type="date" style="width: 95px;"
+							name="coupon Start Date start" ng-model="startDateStart" required></input>
+						<input type="date" style="width: 95px;"
+							name="coupon Start Date limit" placeholder="dd-MM-yyyy"
+							ng-model="startDateLimit" required></input>
+						<button id="SumbitGetCompanyCouponByStartDateStartAndEndDateLimit"
+							ng-click="AdminCtrl.getCouponsByCompanyIdAndStartDateStartAndEndDateLimit()">Sumbit</button>
+					</form>
+				</button>
+				<button id="GetCompanyCouponByEndDateStartAndEndDateLimit"
+					style="width: 100px;">
+					Coupons By End Date Limits
+					<form>
+						<input type="date" style="width: 95px;"
+							name="coupon End Date start" ng-model="endDateStart" required></input>
+						<input type="date" style="width: 95px;"
+							name="coupon End Date limit" placeholder="dd-MM-yyyy"
+							ng-model="endDateLimit" required></input>
+						<button id="SumbitGetCompanyCouponByEndDateStartAndEndDateLimit"
+							ng-click="AdminCtrl.getCouponsByCompanyIdAndEndDateStartAndEndDateLimit()">Sumbit</button>
+					</form>
+				</button>
+
+
+
+
+				<button id="CompanyCouponsByCouponTypeListButton"
+					style="width: 100px;">
+
+					Coupons By Coupon Type
+					<form>
+						<select required ng-model="CouponType" style="width: 95px;">
+							<option value="" disabled selected>Type</option>
+							<option value="RESTAURATS" required>RESTAURATS</option>
+							<option value="ELECTRICITY" required>ELECTRICITY</option>
+							<option value="FOOD" required>FOOD</option>
+							<option value="SPORTS" required>SPORTS</option>
+							<option value="CAMPING" required>CAMPING</option>
+							<option value="TRAVELLING" required>TRAVELLING</option>
+
+						</select>
+
+						<button id="SumbitCompanyCouponsByCouponTypeListButton"
+							ng-click="AdminCtrl.getCouponsByCompanyIdAndCouponType()">Sumbit</button>
+					</form>
+				</button>
+
+
+
+				<table id="TableGetCompanyCoupons">
+
+					<caption id="TableGetCompanyCouponsCaption">
+						<font color="white">Company Coupons-Coupon Details</font>
+					</caption>
+
+					<tr>
+						<th><button id="modalBtnGetCompanyCoupons">Enter
+								Company ID</button></th>
+						<th ng-show="showAdminCreateCouponButton"><button
+								id="modalBtnAdminCreateCoupon">Create Coupon</button></th>
+
+					</tr>
+
+
+					<tr>
+						<th>Coupon Id</th>
+						<th>Coupon Title</th>
+						<th>Company Id</th>
+						<th>Coupon Start Date</th>
+						<th>Coupon End Date</th>
+						<th>Coupon Amount</th>
+						<th>Coupon Type</th>
+						<th>Message</th>
+						<th>Price</th>
+						<th>Image</th>
+					</tr>
+					<tr ng-repeat="coupon in coupons">
+						<td>{{coupon.couponId}}</td>
+						<td>{{coupon.couponTitle}}</td>
+						<td>{{coupon.companyId}}</td>
+						<td>{{coupon.startDate|date:'dd/MM/yyyy'}}</td>
+						<td>{{coupon.endDate|date:'dd/MM/yyyy'}}</td>
+						<td>{{coupon.couponAmount}}</td>
+						<td>{{coupon.couponType}}</td>
+						<td>{{coupon.message}}</td>
+						<td>{{coupon.price}}</td>
+						<td><img src="images/{{coupon.image}}" alt="No Image"
+							style="width: 42px; height: 42px"></td>
+
+						<td><button id="AdminRemoveCoupon"
+								ng-click="AdminCtrl.deleteCouponAndDeleteCouponsPurchasedByCustomer(coupon.couponId)">Remove
+								Coupon</button> <br>
+							<button id="getCouponUpdateModal"
+								ng-click="AdminCtrl.getCouponUpdateModal(coupon.couponId)">Update
+								Coupon</button></td>
+
+					</tr>
+				</table>
+
+			</div>
+
+		</div>
+		<!-- Tab.isSet(3) Customer Panel-->
+		<div ng-show="Tab.isSet(3)"
+			ng-controller="AdminController as AdminCtrl">
+			<h3>Customer Panel</h3>
+			<ul>
+				<button id="adminButton" ng-click="show=7">
+					<li><a href="">Purchase Coupons</a></li>
+				</button>
+				</br>
+				<button id="adminButton" ng-click="show=8">
+					<li><a href="">Customer Coupons</a></li>
+				</button>
+				</br>
+			</ul>
+			<!--show==7: Gets a specific Customer,Form to get a Customer ID and a Table to Display it-->
+			<div ng-show="show==7">
+
+				<div id="simpleModalPurchaseCoupons">
+					<div id="ModalContentPurchaseCoupons">
+						<span class="closeBtnPurchaseCoupons">&times;</span>
+						<h1>Enter Customer ID</h1>
+						<br></br>
+						<form>
+
+							Customer ID <br></br> <input type="number" ng-model="customerId"
+								id="PurchaseCouponsByCustomerId" placeholder="Customer ID"></input><br></br>
+							<button id="PurchaseCouponsByCustomerIdSumbitButton"
+								ng-click="AdminCtrl.getAllCouponsByCustomerId()">Sumbit</button>
+
+						</form>
+
+
+					</div>
+				</div>
+				<button id="AllCouponByCustomerId" style="width: 70px;"
+					ng-click="AdminCtrl.allCouponsButtonByCustomerId()">Back
+					To All Coupons</button>
+				<button id="GetAllCouponByPriceLimitButtonByCustomerId"
+					style="width: 100px;" disabled>
+					Coupons By Price Limits
+					<form>
+						<span id="inputDollerSign"> <input type="number"
+							style="width: 95px;" step="0.25" ng-model="startPriceCustomer"></input></span>
+						<span id="inputDollerSign"><input type="number"
+							style="width: 95px;" step="0.25" value="0.00"
+							ng-model="limitPriceCustomer"></input></span>
+						<button id="SumbitGetCouponByPriceLimitByCustomerId"
+							ng-click="AdminCtrl.getAllCouponsByStartPriceAndLimitPriceByCustomerId()">Sumbit</button>
+					</form>
+				</button>
+				<button id="getCouponsByStartDateStartAndEndDateLimitByCustomerId"
+					style="width: 100px;" disabled>
+					Coupons By Start Date Limits
+					<form>
+
+						<input type="date" style="width: 95px;"
+							name="coupon Start Date start" ng-model="startDateStart" required></input>
+						<input type="date" style="width: 95px;"
+							name="coupon Start Date limit" placeholder="dd-MM-yyyy"
+							ng-model="startDateLimit" required></input>
+						<button
+							id="SumbitGetCouponsByStartDateStartAndEndDateLimitByCustomerId"
+							ng-click="AdminCtrl.getCouponsByStartDateStartAndEndDateLimitByCustomerId()">Sumbit</button>
+					</form>
+				</button>
+
+				<button id="GetCouponByEndDateStartAndEndDateLimitByCustomerId"
+					style="width: 100px;" disabled>
+					Coupons By End Date Limits
+					<form>
+						<input type="date" style="width: 95px;"
+							name="coupon End Date start" ng-model="endDateStart" required></input>
+						<input type="date" style="width: 95px;"
+							name="coupon End Date limit" placeholder="dd-MM-yyyy"
+							ng-model="endDateLimit" required></input>
+						<button
+							id="SumbitGetCouponByEndDateStartAndEndDateLimitByCustomerId"
+							ng-click="AdminCtrl.getCouponsByEndDateStartAndEndDateLimitByCustomerId()">Sumbit</button>
+					</form>
+				</button>
+				<button id="CouponsByCouponTypeListButtonByCustomerId"
+					style="width: 100px;" disabled>
+
+					Coupons By Coupon Type
+					<form>
+						<select required ng-model="CouponType" style="width: 95px;">
+							<option value="" disabled selected>Type</option>
+							<option value="RESTAURATS" required>RESTAURATS</option>
+							<option value="ELECTRICITY" required>ELECTRICITY</option>
+							<option value="FOOD" required>FOOD</option>
+							<option value="SPORTS" required>SPORTS</option>
+							<option value="CAMPING" required>CAMPING</option>
+							<option value="TRAVELLING" required>TRAVELLING</option>
+
+						</select>
+
+						<button id="SumbitCouponsByCouponTypeListButtonByCustomerId"
+							ng-click="AdminCtrl.getCouponsByCouponTypeByCustomerId()">Sumbit</button>
+					</form>
+				</button>
+
+
+
+
+
+				<table id="TablePurchaseCoupons">
+					<caption id="TablePurchaseCouponsCaption">
+						<font color="white">Purchase Coupons-Coupon Details</font>
+					</caption>
+
+					<tr>
+						<th><button id="modalBtnPurchaseCoupons">Enter
+								Customer ID</button></th>
+
+
+					</tr>
+
+					<tr>
+						<th>Coupon Id</th>
+						<th>Coupon Title</th>
+						<th>Company Id</th>
+						<th>Coupon Start Date</th>
+						<th>Coupon End Date</th>
+						<th>Coupon Amount</th>
+						<th>Coupon Type</th>
+						<th>Message</th>
+						<th>Price</th>
+						<th>Image</th>
+					</tr>
+					<tr ng-repeat="coupon in coupons">
+						<td>{{coupon.couponId}}</td>
+						<td>{{coupon.couponTitle}}</td>
+						<td>{{coupon.companyId}}</td>
+						<td>{{coupon.startDate|date:'dd/MM/yyyy'}}</td>
+						<td>{{coupon.endDate|date:'dd/MM/yyyy'}}</td>
+						<td>{{coupon.couponAmount}}</td>
+						<td>{{coupon.couponType}}</td>
+						<td>{{coupon.message}}</td>
+						<td>{{coupon.price}}</td>
+						<td><img src="images/{{coupon.image}}" alt="No Image" style="width:42px;height:42px"></td>
+
+						<td><button id="PurchaseCoupon"
+								ng-click="AdminCtrl.purchaseCoupon(coupon.couponId)">Purchase
+								Coupon</button></td>
+
+					</tr>
+				</table>
+
+
+			</div>
+			<!--show==8: Gets a specific Customer,Form to get a Customer ID and a Table to Display it-->
+			<div ng-show="show==8">
+
+				<div id="simpleModalGetPurchasedCoupons">
+					<div id="ModalContentGetPurchasedCoupons">
+						<span class="closeBtnGetPurchasedCoupons">&times;</span>
+						<h1>Enter Customer ID</h1>
+						<br></br>
+						<form>
+
+							Customer ID <br></br> <input type="number"
+								ng-model="customerIdOfPurchasedCoupons"
+								id="PurchaseCouponsByCustomerId" placeholder="Customer ID"></input><br></br>
+							<button id="PurchaseCouponsByCustomerIdSumbitButton"
+								ng-click="AdminCtrl.getPurchasedCouponsByCustomerId()">Sumbit</button>
+
+						</form>
+
+
+					</div>
+				</div>
+				<button id="AllCustomerCouponsByCustomerId" style="width: 100px;"
+					ng-click="AdminCtrl.backToGetAllCustomerCouponsByCustomerId()">All
+					Customer Coupons</button>
+
+				<button id="GetCustomerCouponByPriceLimit" style="width: 100px;">
+					Coupons By Price Limits
+					<form>
+						<span id="inputDollerSign"> <input type="number"
+							style="width: 95px;" step="0.25" ng-model="startPrice"></input></span> <span
+							id="inputDollerSign"><input type="number"
+							style="width: 95px;" step="0.25" value="0.00"
+							ng-model="limitPrice"></input></span>
+
+						<button id="SumbitGetPurchasedCouponByPriceLimitByCustomerID"
+							ng-click="AdminCtrl.getCouponsByCustomerIdAndStartPriceAndLimitPrice()">Sumbit</button>
+					</form>
+				</button>
+				<button id="GetCustomerCouponsByStartDateStartAndEndDateLimit"
+					style="width: 100px;">
+					Coupons By Start Date Limits
+					<form>
+
+						<input type="date" style="width: 95px;"
+							name="coupon Start Date start" ng-model="startDateStart" required></input>
+						<input type="date" style="width: 95px;"
+							name="coupon Start Date limit" placeholder="dd-MM-yyyy"
+							ng-model="startDateLimit" required></input>
+						<button
+							id="SumbitGetCustomerCouponsByStartDateStartAndEndDateLimit"
+							ng-click="AdminCtrl.getCouponsByCustomerIdAndStartDateStartAndEndDateLimit()">Sumbit</button>
+					</form>
+				</button>
+				<button id="GetCustomerCouponsByEndDateStartAndEndDateLimit"
+					style="width: 100px;">
+					Coupons By End Date Limits
+					<form>
+						<input type="date" style="width: 95px;"
+							name="coupon End Date start" ng-model="endDateStart" required></input>
+						<input type="date" style="width: 95px;"
+							name="coupon End Date limit" placeholder="dd-MM-yyyy"
+							ng-model="endDateLimit" required></input>
+						<button id="SumbitGetCustomerCouponsByEndDateStartAndEndDateLimit"
+							ng-click="AdminCtrl.getCouponsByCustomerIdAndEndDateStartAndEndDateLimit()">Sumbit</button>
+					</form>
+				</button>
+
+				<button id="CustomerCouponsByCouponTypeListButton"
+					style="width: 100px;">
+
+					Coupons By Coupon Type
+					<form>
+						<select required ng-model="CouponType" style="width: 95px;">
+							<option value="" disabled selected>Type</option>
+							<option value="RESTAURATS" required>RESTAURATS</option>
+							<option value="ELECTRICITY" required>ELECTRICITY</option>
+							<option value="FOOD" required>FOOD</option>
+							<option value="SPORTS" required>SPORTS</option>
+							<option value="CAMPING" required>CAMPING</option>
+							<option value="TRAVELLING" required>TRAVELLING</option>
+
+						</select>
+
+						<button id="SumbitCustomerCouponsByCouponTypeListButton"
+							ng-click="AdminCtrl.getCouponsByCustomerIdAndCouponType()">Sumbit</button>
+					</form>
+				</button>
+
+				<table id="TableGetPurchasedCoupons">
+					<caption id="TableGetPurchasedCouponsCaption">
+						<font color="white">Customer Coupons-Coupon Details</font>
+					</caption>
+					<tr>
+						<th><button id="modalBtnGetPurchasedCoupons">Enter
+								Customer ID</button></th>
+
+
+					</tr>
+					<tr>
+						<th>Coupon Id</th>
+						<th>Coupon Title</th>
+						<th>Company Id</th>
+						<th>Coupon Start Date</th>
+						<th>Coupon End Date</th>
+						<th>Coupon Amount</th>
+						<th>Coupon Type</th>
+						<th>Message</th>
+						<th>Price</th>
+						<th>Image</th>
+					</tr>
+					<tr ng-repeat="Coupon in Coupons">
+						<td>{{Coupon.couponId}}</td>
+						<td>{{Coupon.couponTitle}}</td>
+						<td>{{Coupon.companyId}}</td>
+						<td>{{Coupon.startDate|date:'dd/MM/yyyy'}}</td>
+						<td>{{Coupon.endDate|date:'dd/MM/yyyy'}}</td>
+						<td>{{Coupon.couponAmount}}</td>
+						<td>{{Coupon.couponType}}</td>
+						<td>{{Coupon.message}}</td>
+						<td>{{Coupon.price}}</td>
+						<td><img src="images/{{Coupon.image}}" alt="No Image" style="width:42px;height:42px"></td>
+
+						<td><button id="AmountOfPurchasedCoupons"
+								ng-click="AdminCtrl.getAmountOfPurchasedCouponsByCustomerIdAndCouponId(Coupon.couponId)">Amount
+								Of Purchased Coupons</button></td>
+
+					</tr>
+				</table>
+
+
+			</div>
+		</div>
+	</div>
+
+</body>
+
+

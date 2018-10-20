@@ -1,0 +1,34 @@
+
+<body ng-app="project">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./css/login2.css" />
+<link rel="stylesheet" type="text/css" href="./css/login.css" />
+
+	
+	<div>
+		<img src="http://greatsavingsusa.com/images/coupon.png" height="170"
+			width="405"  id="CouponsImage" />.<br />
+	</div>
+<div ng-controller="LoginController as mainController" class="login" >
+   
+  <h1>Login</h1>
+
+  <form ng-submit="mainController.login()" class="login-container">
+    <p><input type="text" placeholder="UserName" ng-model="user.loginName" required></input></p>
+    <p><input type="password" id="loginPassword" placeholder="Password"  ng-model="user.loginPassword" required></input></p>
+    <p><select required ng-model="user.loginClientType"  id="loginClientChoice">
+     <p><option value="" disabled selected>Client Type</option>
+       <option value="ADMINISTRATOR" required>Administrator</option>
+      <option value="COMPANY" required>Company</option>
+      <option value="CUSTOMER" required>Customer</option>
+      
+    </select>
+    </p>
+    <p><input type="submit" value="Sumbit"></p>
+    <p style="color:red;"ng-show ="falselogin">Login Failed - You have entered an invalid User Name or Password. Or your Client Type does not have authorization to perform this action</p>
+  </form>
+</div>
+
+</body>
+
+

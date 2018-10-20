@@ -1,0 +1,1370 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+#headDiv {
+	width: 2000px;
+	height: 115px;
+	background-color: #004f99;
+	margin: auto;
+	background-size: cover;
+	margin-top: -145px;
+}
+
+#adminButton {
+	background: #004f99;
+	width: 100%;
+}
+
+h3 {
+	color: white;
+	text-transform: uppercase;
+}
+#LogOutAdmin{
+	color: #ffffff;
+	background-color: #a5a5a5;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	top:5%;
+	right: 5%;
+	position: absolute;
+	
+	
+}
+div {
+	width: 245px;
+	height: 5000px;
+	background: #004f99;
+}
+
+div a {
+	font-family: "Times New Roman", Times, serif;
+	text-decoration: none;
+	color: #ffffff;
+	padding: 10px;
+	padding-right: 60px;
+	text-transform: uppercase;
+	font-size: 11.5px;
+}
+
+div ul li {
+	border-top: 1px solid #CCC;
+	list-style-type: none;
+	display: block;
+	padding: 15px;
+	color: white;
+	border-bottom: 1px solid #a8dbf0;
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	table-layout: fixed;
+	margin-left: 238px;
+	table-layout: fixed;
+	empty-cells: show;
+}
+
+th {
+	padding: 9px;
+	text-align: center;
+	border: 1px solid black;
+	word-wrap: break-word;
+	border-collapse: collapse;
+	font-size: 11px;
+}
+
+td {
+	padding: 9px;
+	text-align: left;
+	border: 1px solid black;
+	word-wrap: break-word;
+	border-collapse: collapse;
+	font-size: 98%;
+}
+
+#tableListOfCompanies {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -320px;
+	width: 280%;
+	margin-left: 450px;
+	font-size: 12px;
+}
+
+#TableGetCompany {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -320px;
+	width: 200%;
+	margin-left: 450px;
+	font-size: 12px;
+}
+
+#TableListOfCustomers {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -320px;
+	width: 210%;
+	margin-left: 450px;
+	font-size: 12px;
+}
+
+#TableGetCompanyCoupons {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -470px;
+	margin-left: 353px;
+	font-size: 12px;
+	width: 370%;
+	empty-cells: show;
+}
+
+#TableGetCompanyCouponsCaption {
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+#TableGetCustomer {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -320px;
+	width: 140%;
+	margin-left: 450px;
+	font-size: 12px;
+}
+
+#TablePurchaseCoupons {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -450px;
+	margin-left: 353px;
+	font-size: 12px;
+	width: 370%;
+	empty-cells: show;
+}
+
+#TableGetPurchasedCoupons {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -250px;
+	margin-left: 353px;
+	font-size: 12px;
+	width: 370%;
+	empty-cells: show;
+}
+
+#CreateCompany {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#RemoveCompany {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#UpdateCompany {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#tableListOfCompaniesCaption {
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+#tableGetCompanyCaption {
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+#tableListOfCustomersCaption {
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+#CreateCustomer {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#RemoveCustomer {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#UpdateCustomer {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#tableGetCustomerCaption {
+	font-size: 17px;
+	text-transform: uppercase;
+}
+
+#TablePurchaseCouponsCaption {
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+#TableGetPurchasedCouponsCaption {
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+#showCreateCompanyDetailsForm {
+	position: absolute;
+	left: 5%;
+	top: 63%;
+	right: 35%;
+	size: 65%;
+}
+
+#createCouponButton {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#AllCompanyCouponByCompanyId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -215px;
+	margin-left: 250px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#GetCompanyCouponByPriceLimit {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -150px;
+	margin-left: 250px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#SumbitGetCompanyCouponByPriceLimit {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -75px;
+	margin-left: 250px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#GetCompanyCouponByStartDateStartAndEndDateLimit {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -50px;
+	margin-left: 247px;
+}
+
+#SumbitGetCompanyCouponByStartDateStartAndEndDateLimit {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 247px;
+}
+
+#GetCompanyCouponByEndDateStartAndEndDateLimit {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 247px;
+}
+
+#SumbitGetCompanyCouponByEndDateStartAndEndDateLimit {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 247px;
+}
+
+#CompanyCouponsByCouponTypeListButton {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 3px;
+	margin-left: 247px;
+}
+
+#SumbitCompanyCouponsByCouponTypeListButton {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 247px;
+}
+
+#AllCustomerCouponsByCustomerId {
+	position: absolute;
+	left: 17%;
+	top: 27%;
+	right: 35%;
+	size: 65%;
+}
+
+#CustomerCouponsByCouponTypeListButton {
+	position: absolute;
+	left: 17%;
+	top: 35%;
+	right: 35%;
+	size: 65%;
+}
+
+#SumbitCustomerCouponsByCouponTypeListButton {
+	position: absolute;
+	left: 17%;
+	top: 43%;
+	right: 35%;
+	size: 65%;
+}
+
+#GetCustomerCouponByPriceLimit {
+	position: absolute;
+	left: 17%;
+	top: 48%;
+	right: 35%;
+	size: 65%;
+}
+
+#SumbitGetCustomerCouponByPriceLimit {
+	position: absolute;
+	left: 17%;
+	top: 58%;
+	right: 35%;
+	size: 65%;
+}
+
+#GetCustomerCouponsByStartDateStartAndEndDateLimit {
+	position: absolute;
+	left: 17%;
+	top: 63%;
+	right: 35%;
+	size: 65%;
+}
+
+#SumbitGetCustomerCouponsByStartDateStartAndEndDateLimit {
+	position: absolute;
+	left: 17%;
+	top: 74%;
+	right: 35%;
+	size: 65%;
+}
+
+#GetCustomerCouponsByEndDateStartAndEndDateLimit {
+	position: absolute;
+	left: 17%;
+	top: 79%;
+	right: 35%;
+	size: 65%;
+}
+
+#SumbitGetCustomerCouponsByEndDateStartAndEndDateLimit {
+	position: absolute;
+	left: 17%;
+	top: 90%;
+	right: 35%;
+	size: 65%;
+}
+
+#simpleModalCreateCompany {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#simpleModalUpdateCompany {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#ModalContentUpdateCompany {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 50%;
+	font-size: 14px;
+}
+
+.CloseButtonUpdateCompany {
+	color: #000000;
+	float: right;
+	margin-top: -33px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#modalBtnCreateCompany {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#modalBtnUpdateCompany {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#CloseButtonCreateCompany {
+	color: #000000;
+	float: right;
+	margin-top: -63px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#ModalContentCreateCoupon {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 50%;
+	font-size: 14px;
+}
+
+#CloseButtonCreateCompany {
+	color: #000000;
+	float: right;
+	margin-top: -37px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+h1 {
+	color: #28d;
+	text-transform: uppercase;
+	font-size: 23px;
+	vertical-align: middle;
+	float: center;
+}
+
+#CompanyName {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 31px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CompanyPassword {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 10px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CompanyEmail {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 31px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#SumbitCreateCompanyButton {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 13%;
+}
+
+#CompanyId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 100px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CompanyPassword {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 37px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CompanyPassword {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 7px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CompanyEmail {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 33px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#SumbitUpdateCompanyButton {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 13%;
+}
+
+#simpleModalGetCompanyDetails {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#ModalContentGetCompanyDetails {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 34%;
+	font-size: 14px;
+}
+
+.CloseButtonGetCompanyDetails {
+	color: #000000;
+	float: right;
+	margin-top: -37px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#CompanyIdGetCompanyDetails {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 33px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+.CloseButtonCreateCustomer {
+	color: #000000;
+	float: right;
+	margin-top: -37px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#modalBtnGetCompanyDetails {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#CompanyIdGetCompanyDetailsSumbit {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 17%;
+}
+
+#simpleModalCreateCustomer {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#ModalContentGetCreateCustomer {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 34%;
+	font-size: 14px;
+}
+
+#modalBtnCreateCustomer {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#CustomerName {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 33px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CustomerPassword {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 9px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#SumbitCreateCustomerButton {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 17%;
+}
+
+#simpleModalUpdateCustomer {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#ModalContentUpdateCustomer {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 38%;
+	font-size: 14px;
+}
+
+#modalBtnUpdateCustomer {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+.CloseButtonUpdateCustomer {
+	color: #000000;
+	float: right;
+	margin-top: -33px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#CustomerId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 100px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CustomerPassword {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 7px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CustomerSumbitForm {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 16%;
+}
+
+#simpleModalGetCustomerDetails {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#ModalContentGetCustomerDetails {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 34%;
+	font-size: 14px;
+}
+
+.CloseButtonGetCustomerDetails {
+	color: #000000;
+	float: right;
+	margin-top: -37px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#modalBtnGetCustomerDetails {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#EnterACustomerID {
+	vertical-align: middle;
+	margin-top: 3px;
+	margin-left: 30px;
+}
+
+#EnterACompanyID {
+	vertical-align: middle;
+	margin-top: 3px;
+	margin-left: 30px;
+}
+
+#CustomerIdGetCustomerDetails {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 33px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CustomerIdGetCustomerDetailsSumbit {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 17%;
+}
+
+#simpleModalGetCompanyCoupons {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#ModalContentGetCompanyCoupons {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 34%;
+	font-size: 14px;
+}
+
+.CloseButtonGetCompanyCoupons {
+	color: #000000;
+	float: right;
+	margin-top: -37px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#modalBtnGetCompanyCoupons {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#GetCompanyCouponsByCompanyId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -36px;
+	margin-left: 110px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#GetCompanyCouponsByCompanyIdSumbitButton {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 17%;
+}
+
+#simpleModalCreateCoupon {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#modal-contentCreateCoupon {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 80%;
+	font-size: 14px;
+}
+
+.CloseButtonAdminCreateCoupon {
+	color: #000000;
+	float: right;
+	margin-top: -63px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#modalBtnAdminCreateCoupon {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#CouponID {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 100px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CouponTitle {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 57px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CouponStartDate {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 20px;
+	color: #808080;
+}
+
+#CouponEndDate {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 24px;
+	color: #808080;
+}
+
+#AmountOfCoupons {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 33px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CouponType {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 50px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+	color: #808080;
+}
+
+#couponDescription {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 23px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+	color: #808080;
+	height: 12%
+}
+
+#CouponPrice {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 49px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+	color: #808080;
+}
+
+#CouponImage {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 39px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+	color: #808080;
+}
+
+#SumbitCreateCouponButton {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 9%;
+}
+
+#AdminRemoveCoupon {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#simpleModalAdminUpdateCoupon {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#ModalContentAdminUpdateCoupon {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 80%;
+	font-size: 14px;
+}
+
+.closeBtnAdminUpdateCoupon {
+	color: #000000;
+	float: right;
+	margin-top: -63px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#getCouponUpdateModal {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#simpleModalPurchaseCoupons {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#ModalContentPurchaseCoupons {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 34%;
+	font-size: 14px;
+}
+
+.closeBtnPurchaseCoupons {
+	color: #000000;
+	float: right;
+	margin-top: -38px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#modalBtnPurchaseCoupons {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#PurchaseCouponsByCustomerId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -36px;
+	margin-left: 110px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#PurchaseCouponsByCustomerIdSumbitButton {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 17%;
+}
+
+#PurchaseCoupon {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#AllCouponByCustomerId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -260px;
+	margin-left: 250px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#GetAllCouponByPriceLimitButtonByCustomerId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -215px;
+	margin-left: 250px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#SumbitGetCouponByPriceLimitByCustomerId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -137px;
+	margin-left: 250px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#getCouponsByStartDateStartAndEndDateLimitByCustomerId {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -110px;
+	margin-left: 247px;
+}
+
+#SumbitGetCouponsByStartDateStartAndEndDateLimitByCustomerId {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -10px;
+	margin-left: 247px;
+}
+
+#GetCouponByEndDateStartAndEndDateLimitByCustomerId {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 247px;
+}
+
+#SumbitGetCouponByEndDateStartAndEndDateLimitByCustomerId {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 247px;
+}
+
+#CouponsByCouponTypeListButtonByCustomerId {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 3px;
+	margin-left: 247px;
+}
+
+#SumbitCouponsByCouponTypeListButtonByCustomerId {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 247px;
+}
+
+#simpleModalGetPurchasedCoupons {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#ModalContentGetPurchasedCoupons {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 34%;
+	font-size: 14px;
+}
+
+.closeBtnGetPurchasedCoupons {
+	color: #000000;
+	float: right;
+	margin-top: -38px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#modalBtnGetPurchasedCoupons {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#AllCustomerCouponsByCustomerId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -60px;
+	margin-left: 35px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#GetCustomerCouponByPriceLimit {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -130px;
+	margin-left: 35px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#SumbitGetPurchasedCouponByPriceLimitByCustomerID {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -136px;
+	margin-left: 251px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#GetCustomerCouponsByStartDateStartAndEndDateLimit {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -110px;
+	margin-left: 35px;
+}
+
+#SumbitGetCustomerCouponsByStartDateStartAndEndDateLimit {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -70px;
+	margin-left: 35px;
+}
+
+#GetCustomerCouponsByEndDateStartAndEndDateLimit {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -70px;
+	margin-left: 35px;
+}
+
+#SumbitGetCustomerCouponsByEndDateStartAndEndDateLimit {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -45px;
+	margin-left: 35px;
+}
+
+#CustomerCouponsByCouponTypeListButton {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 295px;
+	margin-left: 35px;
+}
+
+#SumbitCustomerCouponsByCouponTypeListButton {
+	color: #ffffff;
+	background-color: #28d;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 304px;
+	margin-left: 35px;
+}
+
+#AmountOfPurchasedCoupons {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#inputDollerSign {
+	position: relative;
+	width: 130px;
+}
+
+#inputDollerSign input {
+	padding-left: 18px;
+}
+
+#inputDollerSign:before {
+	position: absolute;
+	top: 0;
+	content: "$";
+}
+
+#inputDollerSign:before {
+	left: 5px;
+}

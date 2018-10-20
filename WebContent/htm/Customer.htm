@@ -1,0 +1,267 @@
+
+<meta charset="windows-1255">
+<title>Customer page</title>
+
+<script type="text/javascript" src="./scripts/angular.min.js"></script>
+<script type="text/javascript" src="./scripts/app.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/Customer.css" />
+
+
+<body ng-app="project">
+
+	<div id="headDiv"></div>
+	<div ng-controller="CustomerController as custController">
+		<ul>
+			<button id="CustomerButtons"
+				ng-click="custController.getCouponsByCustomerId()">
+				<li><a href="">Coupons For Purchase</a></li>
+			</button>
+			<button id="CustomerButtons"
+				ng-click="custController.getPurchasedCouponsByCustomerId()">
+				<li><a href="">My Coupons</a></li>
+			</button>
+			<button id="CustomerButtons"
+				ng-click="custController.getCustomerDetails()">
+				<li><a href="">My Details</a></li>
+			</button>
+		</ul>
+		<button id="LogOutCustomer" style="width: 70px;"ng-click="custController.CustomerLogOut()">Logout</button>
+		<!-- Tab.isSet(1) List Of Available Coupons For Purchased-->
+		<div ng-show="custController.isSet(1)"
+			ng-controller="CustomerController as custCtrl">
+
+			<button id="GetAllCouponsButton" style="width: 70px;"
+				ng-click="custCtrl.allCouponsButtonByCustomerId()">Back To All Coupons</button>
+
+
+			<button id="GetAllCouponByPriceLimitButton" style="width: 128px;"disabled>
+				Coupons By Price Limits
+				<form>
+					<span id="inputDollerSign"> <input type="number"
+						style="width: 126px;" step="0.25" ng-model="startPriceCustomer"></input></span>
+					<span id="inputDollerSign"><input type="number"
+						style="width: 126px;" step="0.25" value="0.00"
+						ng-model="limitPriceCustomer"></input></span>
+					<button id="SumbitGetCompanyCouponByPriceLimit"
+						ng-click="custCtrl.getAllCouponsByStartPriceAndLimitPriceByCustomerId()">Sumbit</button>
+				</form>
+			</button>
+			<button id="getCouponsByStartDateStartAndEndDateLimit"
+				style="width: 130px;" disabled>
+				Coupons By Start Date Limits
+				<form>
+
+					<input type="date" style="width: 127px;"
+						name="coupon Start Date start" ng-model="startDateStart" required></input>
+					<input type="date" style="width: 127px;"
+						name="coupon Start Date limit" placeholder="dd-MM-yyyy"
+						ng-model="startDateLimit" required></input>
+					<button id="SumbitGetCouponsByStartDateStartAndEndDateLimit"
+						ng-click="custCtrl.getCouponsByStartDateStartAndEndDateLimitByCustomerId()">Sumbit</button>
+				</form>
+			</button>
+
+			<button id="GetCouponsByEndDateStartAndEndDateLimit"
+				style="width: 130px;" disabled>
+				Coupons By End Date Limits
+				<form>
+					<input type="date" style="width: 127px;"
+						name="coupon End Date start" ng-model="endDateStart" required></input>
+					<input type="date" style="width: 127px;"
+						name="coupon End Date limit" placeholder="dd-MM-yyyy"
+						ng-model="endDateLimit" required></input>
+					<button id="SumbitGetCouponsByEndDateStartAndEndDateLimit"
+						ng-click="custCtrl.getCouponsByEndDateStartAndEndDateLimitByCustomerId()">Sumbit</button>
+				</form>
+			</button>
+			<button id="CouponsByCouponTypeListButton" style="width: 130px;" disabled>
+
+				Coupons By Coupon Type
+				<form>
+					<select required ng-model="CouponType" style="width: 127px;">
+						<option value="" disabled selected>Coupon Type</option>
+						<option value="RESTAURATS" required>RESTAURATS</option>
+						<option value="ELECTRICITY" required>ELECTRICITY</option>
+						<option value="FOOD" required>FOOD</option>
+						<option value="SPORTS" required>SPORTS</option>
+						<option value="CAMPING" required>CAMPING</option>
+						<option value="TRAVELLING" required>TRAVELLING</option>
+
+					</select>
+
+					<button id="SumbitCouponsByCouponTypeListButton"
+						ng-click="custCtrl.getCouponsByCouponTypeByCustomerId()">Sumbit</button>
+				</form>
+			</button>
+
+
+
+			<table >
+				<caption id="CouponDetailsCaption" >
+					<font color="white">Coupons For Purchase-Coupon Details</font>
+				</caption>
+				<tr>
+					<th>Coupon Id</th>
+					<th>Coupon Title</th>
+					<th>Company Id</th>
+					<th>Coupon Start Date</th>
+					<th>Coupon End Date</th>
+					<th>Coupon Amount</th>
+					<th>Coupon Type</th>
+					<th>Message</th>
+					<th>Price</th>
+					<th>Image</th>
+				</tr>
+				<tr ng-repeat="coupon in coupons">
+					<td>{{coupon.couponId}}</td>
+					<td>{{coupon.couponTitle}}</td>
+					<td>{{coupon.companyId}}</td>
+					<td>{{coupon.startDate|date:'dd/MM/yyyy'}}</td>
+					<td>{{coupon.endDate|date:'dd/MM/yyyy'}}</td>
+					<td>{{coupon.couponAmount}}</td>
+					<td>{{coupon.couponType}}</td>
+					<td>{{coupon.message}}</td>
+					<td>{{coupon.price}}</td>
+					<td><img src="images/{{coupon.image}}" alt="No Image" style="width:42px;height:42px"></td>
+
+					<td><button id="PurchaseCoupon" ng-click="custCtrl.purchaseCoupon(coupon.couponId)">Purchase Coupon</button></td>
+
+				</tr>
+			</table>
+
+		</div>
+		<!-- Tab.isSet(2) This Customer's List Of Coupons-->
+		<div ng-show="custController.isSet(2)" id="customersCoupons"
+			ng-controller="CustomerController as custCtrl">
+	<div id="customersCoupons">
+			<button id="backToGetAllCustomerCouponsByCustomerId"
+				style="width: 100px;"
+				ng-click="custCtrl.backToGetAllCustomerCouponsByCustomerId()">Back To All
+				Customer Coupons</button>
+
+			<button id="GetCustomerCouponByPriceLimit" style="width: 130px;"disabled>
+				Coupons By Price Limits
+				<form>
+					<span id="inputDollerSign"> <input type="number"
+						style="width: 127px;" step="0.25" ng-model="startPriceCustomer"></input></span> <span
+						id="inputDollerSign"><input type="number"
+						style="width: 127px;" step="0.25" value="0.00"
+						ng-model="limitPriceCustomer"></input></span>
+					<button id="SumbitGetCustomerCouponByPriceLimit"
+						ng-click="custCtrl.getCouponsByCustomerIdAndStartPriceAndLimitPrice()">Sumbit</button>
+				</form>
+			</button>
+			<button id="GetCustomerCouponsByStartDateStartAndEndDateLimit"
+				style="width: 130px;"disabled>
+				Coupons By Start Date Limits
+				<form>
+
+					<input type="date" style="width: 127px;"
+						name="coupon Start Date start" ng-model="startDateStart" required></input>
+					<input type="date" style="width: 127px;"
+						name="coupon Start Date limit" placeholder="dd-MM-yyyy"
+						ng-model="startDateLimit" required></input>
+					<button
+						id="SumbitGetCustomerCouponsByStartDateStartAndEndDateLimit"
+						ng-click="custCtrl.getCouponsByCustomerIdAndStartDateStartAndEndDateLimit()">Sumbit</button>
+				</form>
+			</button>
+			<button id="GetCustomerCouponsByEndDateStartAndEndDateLimit"
+				style="width: 130px;" disabled>
+				Coupons By End Date Limits
+				<form>
+					<input type="date" style="width: 127px;"
+						name="coupon End Date start" ng-model="endDateStart" required></input>
+					<input type="date" style="width: 127px;"
+						name="coupon End Date limit" placeholder="dd-MM-yyyy"
+						ng-model="endDateLimit" required></input>
+					<button id="SumbitGetCustomerCouponsByEndDateStartAndEndDateLimit"
+						ng-click="custCtrl.getCouponsByCustomerIdAndEndDateStartAndEndDateLimit()">Sumbit</button>
+				</form>
+			</button>
+
+
+			<button id="CustomerCouponsByCouponTypeListButton" style="width: 130px;" disabled>
+
+				Coupons By Coupon Type
+				<form>
+					<select required ng-model="CouponType" style="width: 127px;">
+						<option value="" disabled selected>Coupon Type</option>
+						<option value="RESTAURATS" required>RESTAURATS</option>
+						<option value="ELECTRICITY" required>ELECTRICITY</option>
+						<option value="FOOD" required>FOOD</option>
+						<option value="SPORTS" required>SPORTS</option>
+						<option value="CAMPING" required>CAMPING</option>
+						<option value="TRAVELLING" required>TRAVELLING</option>
+
+					</select>
+
+					<button id="SumbitCustomerCouponsByCouponTypeListButton"
+						ng-click="custCtrl.getCouponsByCustomerIdAndCouponType()">Sumbit</button>
+				</form>
+			</button>
+
+			<table id="tableCustomerCoupons">
+				<caption id="CouponsCustomerDetailsCaption">
+					<font color="white">My Coupons-Coupon Details</font>
+				</caption>
+				<tr>
+					<th>Coupon Id</th>
+					<th>Coupon Title</th>
+					<th>Company Id</th>
+					<th>Coupon Start Date</th>
+					<th>Coupon End Date</th>
+					<th>Coupon Amount</th>
+					<th>Coupon Type</th>
+					<th>Message</th>
+					<th>Price</th>
+					<th>Image</th>
+				</tr>
+				<tr ng-repeat="coupon in coupons">
+					<td>{{coupon.couponId}}</td>
+					<td>{{coupon.couponTitle}}</td>
+					<td>{{coupon.companyId}}</td>
+					<td>{{coupon.startDate|date:'dd/MM/yyyy'}}</td>
+					<td>{{coupon.endDate|date:'dd/MM/yyyy'}}</td>
+					<td>{{coupon.couponAmount}}</td>
+					<td>{{coupon.couponType}}</td>
+					<td>{{coupon.message}}</td>
+					<td>{{coupon.price}}</td>
+					<td><img src="images/{{coupon.image}}" alt="No Image" style="width:42px;height:42px"></td>
+
+					<td><button id="AmountOfPurchasedCoupons" ng-click="custCtrl.getAmountOfPurchasedCouponsByCustomerIdAndCouponId(coupon.couponId)">Amount
+							Of Purchased Coupons</button></td>
+
+				</tr>
+
+			</table>
+			</div>
+		</div>
+		<!-- Tab.isSet(3) Customer's Details By Customer ID-->
+		<div ng-show="custController.isSet(3)" 
+			ng-controller="CustomerController as custCtrl">
+			
+			<table id="tableCustomerDetails">
+				<caption id="CustomerDetailsCaption">
+					<font color="white">My Details-Customer Details</font>
+				</caption>
+				<tr>
+					<th>Customer Id</th>
+					<th>Customer Name</th>
+					<th>Customer Password</th>
+
+				</tr>
+				<tr>
+					<td>{{customer.customerId}}</td>
+					<td>{{customer.customerName}}</td>
+					<td>{{customer.customerPassword}}</td>
+
+				</tr>
+
+			</table>
+
+		</div>
+	</div>
+</body>

@@ -1,0 +1,568 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+P {
+	color: black;
+}
+
+#headDiv {
+	width: 2000px;
+	height: 115px;
+	background-color: #004f99;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -145px;
+}
+
+#updateCouponForm {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -685px;
+	margin-left: 20px;
+}
+
+div {
+	width: 180px;
+	height: 2000px;
+	background: #004f99;
+}
+
+#CompanyButtons {
+	background: #004f99;
+	width: 100%;
+}
+
+#LogOutCompany {
+	color: #ffffff;
+	background-color: #a5a5a5;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	top:5%;
+	right: 5%;
+	position: absolute;
+}
+
+div a {
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	color: #ffffff;
+	height: 1000px;
+	padding: 10px;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+h2 {
+	font-size: 15px;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-decoration: none;
+}
+
+div ul li {
+	border-top: 1px solid #CCC;
+	list-style-type: none;
+	display: block;
+	padding: 15px;
+	color: white;
+	border-bottom: 1px solid #a8dbf0;
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -445px;
+	width: 520%;
+	table-layout: fixed;
+	margin-left: 238px;
+	table-layout: fixed;
+	empty-cells: show;
+}
+
+th {
+	padding: 9px;
+	text-align: center;
+	border: 1px solid black;
+	word-wrap: break-word;
+	border-collapse: collapse;
+	font-size: 11px;
+}
+
+td {
+	padding: 9px;
+	text-align: left;
+	border: 1px solid black;
+	word-wrap: break-word;
+	border-collapse: collapse;
+	font-size: 98%;
+}
+
+#CompanyDetailsCaption {
+	font-size: 20px;
+}
+
+#CouponDetailsCaption {
+	font-size: 25px;
+}
+
+#tableCompanyDetails {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: #ffffff;
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -40px;
+	margin-left: 380px;
+	font-size: 12px;
+	width: 300%;
+	empty-cells: show;
+}
+
+#tableCompanyCoupons {
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -450px;
+	margin-left: 320px;
+	font-size: 12px;
+	empty-cells: show;
+}
+
+#form {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -63px;
+	width: 20%;
+}
+
+#AllCompanyCouponByCompanyId {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -90px;
+	margin-left: 215px;
+	width: 110%;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#GetCompanyCouponByPriceLimit {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -30px;
+	margin-left: 185px;
+	width: 800%;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#SumbitGetCompanyCouponByPriceLimit {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 185px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#GetCompanyCouponByStartDateStartAndEndDateLimit {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 7px;
+	margin-left: 185px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#SumbitGetCompanyCouponByStartDateStartAndEndDateLimit {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 3px;
+	margin-left: 185px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#GetCompanyCouponByEndDateStartAndEndDateLimit {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 185px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#SumbitGetCompanyCouponByEndDateStartAndEndDateLimit {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 3px;
+	margin-left: 185px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#CompanyCouponsByCouponTypeListButton {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 10px;
+	margin-left: 185px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#SumbitCompanyCouponsByCouponTypeListButton {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 3px;
+	margin-left: 185px;
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#removeCoupon {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#updateCoupon {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+input:focus {
+	outline: none;
+	border: 1px solid #4D90FE;
+	-webkit-box-shadow: 0px 0px 5px #4D90FE;
+	box-shadow: 0px 0px 5px #4D90FE;
+}
+
+#CouponID {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 100px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CouponTitle {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 57px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CouponStartDate {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 20px;
+	color: #808080;
+}
+
+#CouponEndDate {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 24px;
+	color: #808080;
+}
+
+#AmountOfCoupons {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 33px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+}
+
+#CouponType {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 50px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+	color: #808080;
+}
+
+#couponDescription {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 23px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+	color: #808080;
+	height: 12%
+}
+
+#CouponPrice {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 49px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+	color: #808080;
+}
+
+#CouponImage {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-left: 39px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2px;
+	font-size: 0.90em;
+	color: #808080;
+}
+
+}
+#couponImagePresent {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: 6px;
+	margin-left: 0px;
+}
+
+#createCouponForm {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -63px;
+	width: 20%;
+}
+
+#tableUpdate {
+	position: absolute;
+	left: 25%;
+	top: 82%;
+	right: 55%;
+	size: 65%;
+}
+
+#simpleModal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#simpleModalUpdateCoupon {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+}
+
+#modal-content {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 80%;
+	font-size: 14px;
+}
+
+#SumbitCreateCouponButton {
+	color: #ffffff;
+	background-color: #28d;
+	border: 1px solid;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 9%;
+}
+
+}
+.closeBtn {
+	
+}
+
+#CloseButtonCreateCoupon {
+	color: #000000;
+	float: right;
+	margin-top: -63px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#modalBtn {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+#modalBtnUpdateCoupon {
+	color: #ffffff;
+	background-color: #28d;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#ModalContentUpdateCoupon {
+	background-color: #fefefe;
+	margin: 3% auto;
+	padding: 27px;
+	border: 1px solid #ffffff;
+	width: 25%;
+	height: 80%;
+	font-size: 14px;
+}
+
+.closeBtnUpdateCoupon {
+	color: #000000;
+	float: right;
+	margin-top: -63px;
+	margin-right: -27px;
+	font-size: 35px;
+}
+
+#couponTable {
+	margin: auto;
+	vertical-align: middle;
+	margin-top: -63px;
+	width: 20%;
+}
+
+#modal-header {
+	display: flex;
+	padding: 20px;
+	font-size: 1.2em;
+	font-weight: normal;
+	vertical-align: middle;
+	text-transform: uppercase;
+	font-family: "Lucida Sans Unicode";
+	text-align: center;
+}
+
+h1 {
+	color: #28d;
+	text-transform: uppercase;
+	font-size: 23px;
+}
+
+h3 {
+	color: #ffffff;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+#choice option {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.modalForm {
+	width: 400px;
+	margin: 16px auto;
+	font-size: 16px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.login-header, .login p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.login-container {
+	background: #ebebeb;
+	padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.modalForm p {
+	padding: 12px;
+}
+
+.modalForm input {
+	box-sizing: border-box;
+	display: block;
+	width: 75%;
+	border-width: 1px;
+	border-style: solid;
+	padding: 16px;
+	outline: 0;
+	font-family: inherit;
+	font-size: 0.95em;
+}
+
+.modalForm input[type="email"], .modalForm input[type="password"] {
+	background: #fff;
+	border-color: #bbb;
+	color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus, .login input[type="password"]:focus {
+	border-color: #888;
+}
+
+.modalForm input[type="submit"] {
+	background: #28d;
+	border-color: transparent;
+	color: #fff;
+	cursor: pointer;
+}
+
+.modalForm input[type="submit"]:hover {
+	background: #17c;
+}
+
+/* Buttons' focus effect */
+.modalForm input[type="submit"]:focus {
+	border-color: #05a;
+}
+
+#inputDollerSign {
+	position: relative;
+	width: 150%;
+}
+
+#inputDollerSign input {
+	padding-left: 18px;
+}
+
+#inputDollerSign:before {
+	position: absolute;
+	top: 0;
+}
+
+#inputDollerSign:before {
+	left: 5px;
+}
